@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace Cliente.Views.Root
+namespace Cliente.Views
 {
     public partial class RootMenu : ContentPage
     {

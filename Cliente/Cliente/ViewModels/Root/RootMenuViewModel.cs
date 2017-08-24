@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Cliente.ViewModels.Root
+namespace Cliente.ViewModels
 {
     public class RootMenuViewModel : BindableBase
     {

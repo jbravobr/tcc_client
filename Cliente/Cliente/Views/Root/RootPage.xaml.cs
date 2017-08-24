@@ -1,23 +1,15 @@
 ﻿using Prism.Navigation;
 using Xamarin.Forms;
 
-namespace Cliente.Views.Root
+namespace Cliente.Views
 {
-    public partial class RootPage : MasterDetailPage, IMasterDetailPageOptions
+    public partial class RootPage : MasterDetailPage//, IMasterDetailPageOptions
     {
         public RootPage()
         {
             InitializeComponent();
-            Detail = new NavigationPage(new Categoria());
-            MasterBehavior = MasterBehavior.Split;
         }
 
-        public bool IsPresentedAfterNavigation => Device.Idiom != TargetIdiom.Phone;
-
-        protected override void OnAppearing()
-        {
-            //Master = new RootMenu {BindingContext = this.BindingContext};
-            MasterMenu.BindingContext = BindingContext;
-        }
+        //public bool IsPresentedAfterNavigation => Device.Idiom != TargetIdiom.Phone;
     }
 }

@@ -1,18 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="Cliente.Views.MainPage"
-             Title="ENCONTRE AQUI">
-  <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Image Source="icon.png"></Image>
-        <Label Text="Olá, bem vindo ao encontre aqui"></Label>
-        <Picker 
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Cliente.Views.MainPage"
+    Title="ENCONTRE AQUI">
+    <StackLayout
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <Image
+            Source="icon.png">
+        </Image>
+        <Label
+            Text="Olá, bem vindo ao encontre aqui">
+        </Label>
+        <Picker
             Title="Selecione uma cidade"
             ItemsSource="{Binding ListaCidades}"
             ItemDisplayBinding="{Binding Nome}"
             SelectedItem="{Binding Path=CidadeSelecionada, Mode=TwoWay}">
         </Picker>
+        <Button Text="Entrar" Command="{Binding EntrarCmd}"/>
     </StackLayout>
 </ContentPage>

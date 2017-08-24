@@ -24,15 +24,18 @@ namespace Cliente.ViewModels
         public Cidade CidadeSelecionada
         {
             get => _cidadeSelecionada;
-            set => SetProperty(ref _cidadeSelecionada, value, ExecuteCidadeCommand);
+            set => SetProperty(ref _cidadeSelecionada, value);
         }
 
-        //public DelegateCommand<Cidade> CidadeCommand { get; set; }
-        public MainPageViewModel(INavigationService navigationService, IPageDialogService dialogService)
+		public DelegateCommand EntrarCmd { get; private set; }
+
+		public MainPageViewModel(INavigationService navigationService, IPageDialogService dialogService)
         {
             _dialogService = dialogService;
             _navigationService = navigationService;
             _restCidade = new RestCidade();
+
+			EntrarCmd = new DelegateCommand(Entrar);
 
             // GARANTINDO QUE A TASK É INVOCADA NA THREAD PRINCIPAL >> UI
             Xamarin.Forms.Device.BeginInvokeOnMainThread(async () => await SetCitiesList());
@@ -56,14 +59,13 @@ namespace Cliente.ViewModels
             }
             catch (Exception)
             {
-
                 //throw;
                 await _dialogService.DisplayAlertAsync("Ops!!!", "Não foi possível carregar as cidades. Certifique-se de que esta conectada à internet.", "OK");
 
             }
         }
 
-        private async void ExecuteCidadeCommand()
+        private async void Entrar()
         {
             if (_cidadeSelecionada == null)
                 throw new ArgumentNullException(nameof(_cidadeSelecionada), "Parâmetro Cidade vazio.");
@@ -72,10 +74,8 @@ namespace Cliente.ViewModels
             {
                 { "cidade", _cidadeSelecionada }
             };
-            //await _navigationService.NavigateAsync(new Uri("http://www.brianlagunas.com/RootPage", UriKind.Absolute));
-            await _navigationService.NavigateAsync("app:///RootPage");;
 
-           //Debug.WriteLine("ERROR NAVEGACAO: " + result);
+            await _navigationService.NavigateAsync("/RootPage/NavigationPage/HomePage");;
         }
 
     }

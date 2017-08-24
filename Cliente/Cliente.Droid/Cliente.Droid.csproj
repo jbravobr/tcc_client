@@ -156,6 +156,7 @@
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable\slideout.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\tabs.xml" />
@@ -170,6 +171,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Cliente\Cliente.csproj">
       <Name>Cliente</Name>
+      <Project>{EDDAB19A-7E11-4E24-B0F5-3BCC86A39C10}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
