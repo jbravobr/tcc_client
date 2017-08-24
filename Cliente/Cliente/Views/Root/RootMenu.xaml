@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             x:Class="Cliente.Views.Root.RootMenu"
+             Title="Menu">
+    <StackLayout>
+        <Image 
+            Source="icon.png" 
+            HorizontalOptions="CenterAndExpand" />
+        <ListView
+            Margin="0,20,0,0"
+            x:Name="listaMenu"
+            ItemsSource="{Binding ItensMenu}"
+            SelectedItem="{Binding ListMenuItem, Mode=TwoWay}"
+            SeparatorVisibility="None"
+            HasUnevenRows="true">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell Text="{Binding Nome}" ImageSource="icon.png"></ImageCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Orientation="Horizontal"  Padding="30,10,10,10" BackgroundColor="#e3636c">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding LoginCommand}" />
+            </StackLayout.GestureRecognizers>
+            <Image Source="{Binding LoginIcone}" WidthRequest="30" />
+            <Label 
+                Text="{Binding LoginText}" 
+                TextColor="White"
+                FontAttributes="Bold" 
+                FontSize="Large"/>
+        </StackLayout>
+    </StackLayout>
+  
+</ContentPage>
